@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aira Mel, AI Builder</title>
+<meta name="description" content="Portfólio de Aira Mel Bezerra Souza. AI Builder na ponte entre tecnologia, negócio e produto. Estudante de Sistemas de Informação no Inteli.">
+<meta property="og:title" content="Aira Mel, AI Builder">
+<meta property="og:description" content="I don't just explore what AI can do. I build things with it.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE occasion: a personal site with the warmth of her Pinterest, film photos, nights out, a Ferrari red helmet
+   IDEA a photo-booth strip and a film contact sheet; her path and her projects as frames she shot herself
+   PICTURE a tilted four-frame photo-booth strip: Pereiro, Fortaleza, São Paulo, Inteli, flashing in on load
+   COLOUR Ferrari red field, warm paper ground, navy ink, watermelon, sky blue and orange per project
+   TYPE Instrument Serif for display, DM Sans for text, Caveat for handwritten margin notes
+   LAYOUT hero red band with name left and strip right; on phone name, strip as 2x2, buttons */
+:root{color-scheme:light dark;
+--bg:light-dark(#fffaf4,#0e1531);--ink:light-dark(#14204a,#f6efe6);--soft:light-dark(#5b6385,#b9bfd6);
+--card:light-dark(#ffffff,#16204a);--line:light-dark(#e8dfd3,#2a376b);
+--red:#d4161c;--melon:#ff5a6e;--sky:#3f86e0;--orange:#ff7a1a;--navy:#14204a;--paper:#fffaf4}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "DM Sans",system-ui,sans-serif;overflow-x:clip}
+img,svg{max-width:100%}
+a{color:inherit}
+.band{padding-block:clamp(48px,7vw,104px);padding-inline:max(5vw,16px)}
+.wrap{max-width:1240px;margin-inline:auto}
+h1,h2,h3{font-family:"Instrument Serif",Georgia,serif;font-weight:400;line-height:1.05;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h2{font-size:clamp(40px,5.5vw,64px)}
+h3{font-size:clamp(30px,3.4vw,42px)}
+p{margin:0 0 1em}
+.note{font-family:Caveat,cursive;font-size:24px;line-height:1.15;color:var(--melon)}
+mark.todo{background:transparent;color:inherit;border:1.5px dashed var(--melon);border-radius:6px;padding:0 6px;font-style:italic}
+mark.todo::before{content:"✎ ";color:var(--melon);font-style:normal}
+body.clean mark.todo,body.clean .draft{display:none}
+
+.draft{background:var(--navy);color:#fff;font-size:14px;padding:10px max(5vw,16px);display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between}
+.draft button{font:inherit;font-size:14px;background:#fff;color:var(--navy);border:0;border-radius:999px;padding:8px 14px;cursor:pointer;min-height:36px}
+
+nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:8px 24px;flex-wrap:wrap;padding:12px max(5vw,16px);max-width:none}
+.brand{font-family:"Instrument Serif",serif;font-size:26px;text-decoration:none;margin-right:auto}
+.brand span{color:var(--red)}
+.links{display:flex;gap:4px 18px;flex-wrap:wrap}
+.links a{text-decoration:none;font-weight:500;font-size:15px;padding:6px 0;border-bottom:2px solid transparent}
+.links a:hover,.links a:focus-visible{border-color:var(--red)}
+.lang{display:flex;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden}
+.lang button{font:inherit;font-size:14px;font-weight:700;background:transparent;color:var(--ink);border:0;padding:6px 12px;cursor:pointer;min-height:36px}
+.lang button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+button:focus-visible,a:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+
+.hero{background:var(--red);color:#fff8f0;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.75fr);gap:clamp(32px,5vw,72px);align-items:center}
+.hero h1{font-size:clamp(76px,12vw,172px);line-height:.88;letter-spacing:-.035em}
+.role{font-weight:700;font-size:clamp(16px,1.6vw,19px);margin:22px 0 26px;letter-spacing:.01em}
+.quote{font-family:"Instrument Serif",serif;font-size:clamp(26px,3vw,38px);line-height:1.12;max-width:20ch;margin-bottom:18px}
+.quote em{color:var(--paper);background:linear-gradient(transparent 62%,rgba(255,90,110,.75) 62%)}
+.hero .sub{max-width:46ch;opacity:.93;font-size:17px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid #fff8f0;transition:transform .2s}
+.btn.solid{background:#fff8f0;color:var(--red)}
+.btn:hover{transform:translateY(-2px)}
+.strip{background:#fffdf8;padding:12px 12px 40px;display:grid;gap:10px;transform:rotate(3deg);box-shadow:14px 16px 0 rgba(60,0,0,.28);max-width:270px;justify-self:center;position:relative}
+.strip::after{content:"Aira · 2026";position:absolute;bottom:8px;left:0;right:0;text-align:center;font-family:Caveat,cursive;font-size:22px;color:var(--navy)}
+.frame{position:relative;aspect-ratio:10/7;overflow:hidden;background:#ddd}
+.frame svg{display:block;width:100%;height:100%}
+.frame span{position:absolute;left:8px;bottom:4px;font-family:Caveat,cursive;font-size:20px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.45)}
+.frame::after{content:"";position:absolute;inset:0;background:#fff;opacity:0;animation:flash 1.1s ease-out both}
+.frame:nth-child(1)::after{animation-delay:.2s}.frame:nth-child(2)::after{animation-delay:.7s}.frame:nth-child(3)::after{animation-delay:1.2s}.frame:nth-child(4)::after{animation-delay:1.7s}
+@keyframes flash{0%{opacity:0}12%{opacity:1}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.frame::after{animation:none}.btn{transition:none}html{scroll-behavior:auto}}
+
+.about{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(32px,5vw,80px)}
+.about p{font-size:18px;max-width:60ch}
+.about .note{margin-top:8px;transform:rotate(-2deg);display:inline-block}
+.me{background:var(--card);border:1px solid var(--line);padding:24px;transform:rotate(1.2deg);box-shadow:8px 10px 0 color-mix(in srgb,var(--red) 22%,transparent)}
+.me h3{font-size:30px;margin-bottom:10px}
+.me p{font-size:16px}
+.path{list-style:none;margin:0;padding:0;border-left:3px solid var(--red)}
+.path li{padding:0 0 22px 22px;position:relative}
+.path li::before{content:"";position:absolute;left:-9px;top:6px;width:15px;height:15px;border-radius:50%;background:var(--bg);border:3px solid var(--red)}
+.path b{display:block;font-family:"Instrument Serif",serif;font-weight:400;font-size:26px;line-height:1.1}
+.path small{font-size:15px;color:var(--soft)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{border:1.5px solid var(--ink);border-radius:999px;padding:4px 12px;font-size:14px;font-weight:500}
+
+.head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px 32px;margin-bottom:clamp(28px,4vw,48px)}
+.head p{max-width:46ch;color:var(--soft);margin:0}
+.proj{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.4fr);background:var(--card);border:1px solid var(--line);margin-bottom:28px;border-radius:4px;overflow:hidden}
+.proj:nth-of-type(even){grid-template-columns:minmax(0,1.4fr) minmax(0,.85fr)}
+.proj:nth-of-type(even) .cover{order:2}
+.cover{background:var(--c);color:#fff;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:14px;position:relative;min-height:320px}
+.cover .who{font-weight:700;font-size:15px;opacity:.9}
+.cover h3{font-size:clamp(40px,4.6vw,60px)}
+.cover p{font-family:"Instrument Serif",serif;font-size:22px;line-height:1.2;margin:0}
+.cover .tags{margin-top:auto;display:flex;flex-wrap:wrap;gap:6px}
+.cover .tags span{background:rgba(255,255,255,.18);border-radius:999px;padding:3px 10px;font-size:13px;font-weight:500}
+.sprock{position:absolute;top:0;bottom:0;right:10px;width:10px;background:radial-gradient(circle,rgba(255,255,255,.35) 3px,transparent 3.5px) 0 0/10px 18px}
+.proj:nth-of-type(even) .sprock{right:auto;left:10px}
+.body{padding:clamp(24px,3vw,40px);display:grid;gap:20px;align-content:start}
+.story{font-family:"Instrument Serif",serif;font-size:clamp(22px,2.2vw,27px);line-height:1.22;margin:0}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.trio dt{font-weight:700;font-size:14px;color:var(--red);margin-bottom:4px}
+.trio dd{margin:0;font-size:15px}
+.trio .mine{background:color-mix(in srgb,var(--c) 11%,transparent);border-left:4px solid var(--c);padding:10px 12px}
+.toolsl{font-size:14px;color:var(--soft);margin:0}
+.toolsl a{color:var(--red);font-weight:700}
+.kind{display:inline-block;align-self:flex-start;background:#fff8f0;color:var(--navy);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:14px}
+.thumb{background:var(--card);border:1px solid var(--line);padding:16px;display:flex;flex-direction:column;gap:6px;border-top:6px solid var(--t)}
+.thumb b{font-family:"Instrument Serif",serif;font-weight:400;font-size:26px;line-height:1.05}
+.thumb small{color:var(--soft);font-size:13px;font-weight:700}
+.thumb p{margin:0;font-size:14.5px}
+.liga{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);background:var(--navy);color:#f6efe6;margin-bottom:36px}
+.liga .lc{background:var(--sky);padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:12px;justify-content:space-between}
+.liga .lc h3{font-size:clamp(40px,4.4vw,58px);color:#fff}
+.liga .lb{padding:clamp(24px,3vw,40px)}
+.liga .lb p{font-size:16px}
+.glink{color:#fff;font-weight:700;text-decoration-color:var(--melon);text-underline-offset:4px}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px;padding:clamp(24px,3vw,40px);margin:0}
+.fields div{margin:0}
+.fields dt{font-weight:700;font-size:14px;color:var(--c2,var(--red));margin-bottom:4px}
+.fields dd{margin:0;font-size:15.5px}
+.fields .mine{grid-column:1/-1;background:color-mix(in srgb,var(--c) 10%,transparent);border-left:4px solid var(--c);padding:14px 16px}
+.more{margin-top:48px}
+.more h3{margin-bottom:12px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr);gap:6px 28px;padding:18px 0;border-top:1px solid var(--line)}
+.row b{font-family:"Instrument Serif",serif;font-weight:400;font-size:26px;line-height:1.1}
+.row small{display:block;color:var(--soft);font-size:14px}
+.row p{margin:0}
+
+.build{background:var(--navy);color:#f6efe6}
+.build .head p{color:#c3c9df}
+.film{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;background:#0a1230;padding:22px 0;position:relative}
+.film::before,.film::after{content:"";position:absolute;left:0;right:0;height:10px;background:radial-gradient(circle,#2b3a74 3.5px,transparent 4px) 0 0/22px 10px}
+.film::before{top:6px}.film::after{bottom:6px}
+.shot{background:var(--paper);color:var(--navy);margin:0 6px;padding:20px 18px;display:flex;flex-direction:column;gap:10px}
+.shot h3{font-size:26px}
+.shot p{font-size:15px;margin:0}
+.shot .note{font-size:21px;margin-top:auto;color:var(--red)}
+.build .aside{margin-top:22px;color:#c3c9df;max-width:70ch;font-size:15px}
+
+.beyond{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px}
+.beyond div{padding:18px 0;border-top:1px solid var(--line)}
+.beyond b{display:block;font-size:17px}
+.beyond span{color:var(--soft);font-size:15px}
+.beyond .did{margin:6px 0 0;font-size:15px}
+
+.contact{background:var(--red);color:#fff8f0}
+.contact h2{font-size:clamp(48px,8vw,112px);max-width:12ch}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:32px;align-items:end}
+.clinks{display:grid;gap:10px}
+.clinks a{display:flex;justify-content:space-between;gap:12px;align-items:center;border-bottom:2px solid rgba(255,248,240,.5);padding:10px 0;text-decoration:none;font-size:19px;font-weight:500}
+.clinks a:hover{border-color:#fff8f0}
+.clinks small{font-size:14px;opacity:.85;overflow-wrap:anywhere;text-align:right}
+footer{padding:22px max(5vw,16px);font-size:14px;color:var(--soft);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+
+@media(max-width:900px){
+.film{grid-template-columns:repeat(5,minmax(220px,1fr));overflow-x:auto}
+.proj,.proj:nth-of-type(even){grid-template-columns:minmax(0,1fr)}
+.proj:nth-of-type(even) .cover{order:0}
+.cover{min-height:0}
+}
+@media(max-width:700px){
+.trio,.liga{grid-template-columns:minmax(0,1fr)}
+.hero .wrap,.about,.contact .wrap{grid-template-columns:minmax(0,1fr)}
+.strip{grid-template-columns:repeat(2,minmax(0,1fr));max-width:420px;width:100%;transform:rotate(1.5deg)}
+.fields,.beyond{grid-template-columns:minmax(0,1fr)}
+.row{grid-template-columns:minmax(0,1fr)}
+.links{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap}
+.links a{flex:none}
+}
+</style>
+</head>
+<body>
+<div class="draft" id="draft"><span id="draftTxt"></span><button id="cleanBtn" type="button"></button></div>
+<nav aria-label="Principal"><div class="wrap">
+<a class="brand" href="#top">Aira <span>Mel</span></a>
+<div class="links" id="links"></div>
+<div class="lang" role="group" aria-label="Idioma / Language">
+<button type="button" id="b-pt" aria-pressed="true">PT</button><button type="button" id="b-en" aria-pressed="false">EN</button>
+</div>
+</div></nav>
+
+<header class="hero band" id="top"><div class="wrap">
+<div>
+<h1>Aira<br>Mel</h1>
+<p class="role">AI Builder &nbsp;|&nbsp; Technology × Business × Product</p>
+<p class="quote" id="quote"></p>
+<p class="sub" id="sub"></p>
+<div class="cta"><a class="btn solid" href="#projetos" id="cta1"></a><a class="btn" href="#sobre" id="cta2"></a></div>
+</div>
+<div class="strip" aria-label="Pereiro, Fortaleza, São Paulo, Inteli">
+<div class="frame"><svg viewBox="0 0 200 140" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff8a2a"/><stop offset="1" stop-color="#ffd27a"/></linearGradient></defs>
+<rect width="200" height="140" fill="url(#g1)"/><circle cx="128" cy="70" r="30" fill="#fff1c9"/>
+<path d="M0 98 Q50 70 100 92 T200 84 V140 H0Z" fill="#c2341f"/><path d="M0 116 Q70 96 130 112 T200 108 V140 H0Z" fill="#7d1a12"/>
+<g fill="#14204a"><rect x="40" y="62" width="7" height="52" rx="3"/><rect x="29" y="74" width="6" height="22" rx="3"/><rect x="29" y="90" width="14" height="6" rx="3"/><rect x="52" y="68" width="6" height="20" rx="3"/><rect x="45" y="84" width="13" height="6" rx="3"/></g>
+</svg><span>Pereiro, CE</span></div>
+<div class="frame"><svg viewBox="0 0 200 140" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<rect width="200" height="140" fill="#9fd0ff"/><circle cx="160" cy="34" r="16" fill="#fff6d8"/>
+<rect y="78" width="200" height="62" fill="#2f6fd6"/><path d="M0 92 q10 -5 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0" stroke="#bfe0ff" stroke-width="2" fill="none"/><path d="M0 112 q10 -5 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0" stroke="#9cc9ff" stroke-width="2" fill="none" opacity=".7"/>
+<path d="M58 84 h44 l-6 8 h-32z" fill="#7a3b16"/><path d="M80 82 V30 L112 78Z" fill="#fffdf8"/><path d="M80 52 L97 54 L104 66 L80 64Z" fill="#d4161c"/><rect x="78" y="28" width="3" height="56" fill="#5b2a10"/>
+</svg><span>Fortaleza, 15</span></div>
+<div class="frame"><svg viewBox="0 0 200 140" preserveAspectRatio="xMidYMid slice" aria-hidden="true" id="sp">
+<rect width="200" height="140" fill="#14204a"/><circle cx="34" cy="28" r="10" fill="#fff1c9"/><circle cx="38" cy="25" r="9" fill="#14204a"/>
+</svg><span>São Paulo</span></div>
+<div class="frame"><svg viewBox="0 0 200 140" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<rect width="200" height="140" fill="#ff5a6e"/><circle cx="170" cy="22" r="40" fill="#ff7a8a"/>
+<rect x="44" y="30" width="112" height="72" rx="6" fill="#14204a"/><rect x="51" y="37" width="98" height="58" rx="2" fill="#fffaf4"/>
+<rect x="58" y="44" width="52" height="9" rx="4.5" fill="#d9e6ff"/><rect x="88" y="58" width="54" height="9" rx="4.5" fill="#ffd0d6"/><rect x="58" y="72" width="40" height="9" rx="4.5" fill="#d9e6ff"/><rect x="101" y="73" width="3" height="8" fill="#14204a"/>
+<path d="M30 102 H170 L160 112 H40Z" fill="#0a1230"/>
+</svg><span>Inteli, SI</span></div>
+</div>
+</div></header>
+
+<main>
+<section class="band" id="sobre"><div class="wrap about" id="about"></div></section>
+<section class="band" id="projetos" style="padding-top:0"><div class="wrap" id="proj"></div></section>
+<section class="band build" id="como"><div class="wrap" id="build"></div></section>
+<section class="band" id="alem"><div class="wrap" id="beyond"></div></section>
+<section class="band contact" id="contato"><div class="wrap" id="contact"></div></section>
+</main>
+<footer><span>Aira Mel Bezerra Souza</span><span id="foot"></span></footer>
+
+<script>
+{
+/* ============ EDITE AQUI ============
+   Textos com [[...]] aparecem como marcação tracejada para você completar.
+   Troque DRAFT para false quando estiver tudo pronto. */
+const DRAFT = false;
+
+const CONTACT = [
+  {label:"LinkedIn", show:"linkedin.com/in/aira-mel", href:"https://www.linkedin.com/in/aira-mel"},
+  {label:"GitHub", show:"github.com/AiraaMel", href:"https://github.com/AiraaMel"},
+  {label:"Email", show:"airamelbs@gmail.com", href:"mailto:airamelbs@gmail.com"}
+];
+
+const UI = {
+  pt:{draft:"Rascunho v1. Tudo que está com borda tracejada precisa da sua confirmação antes de enviar.", clean:"Ver sem marcações", marks:"Mostrar marcações",
+    nav:[["sobre","Sobre"],["projetos","Projetos"],["como","Como eu construo"],["alem","Além da tela"],["contato","Contato"]],
+    quote:"I don't just explore what AI can do. <em>I build things with it.</em>",
+    sub:"Estudante de Sistemas de Informação no Inteli. Fico entre o negócio e a tecnologia, usando IA para transformar problema em coisa que funciona.",
+    cta1:"Ver projetos", cta2:"Quem sou eu",
+    labels:{context:"Contexto e problema",opp:"Oportunidade",sol:"O que foi construído",ai:"Onde entra a IA",mine:"Minha parte",tools:"Ferramentas",res:"O que ficou"},
+    projH:"Projetos selecionados", projP:"",
+    moreH:"Também construí", buildH:"Como eu construo", buildP:"",
+    beyondH:"Além da tela", contactH:"Vamos construir alguma coisa?", foot:"Feito com HTML, CSS e um pouco de IA."},
+  en:{draft:"Draft v1. Everything with a dashed border needs your confirmation before sending.", clean:"Hide notes", marks:"Show notes",
+    nav:[["sobre","About"],["projetos","Projects"],["como","How I build"],["alem","Beyond the screen"],["contato","Contact"]],
+    quote:"I don't just explore what AI can do. <em>I build things with it.</em>",
+    sub:"Information Systems student at Inteli. I work between business and technology, using AI to turn problems into things that work.",
+    cta1:"See projects", cta2:"Who I am",
+    labels:{context:"Context and problem",opp:"Opportunity",sol:"What was built",ai:"Where AI comes in",mine:"My part",tools:"Tools",res:"What came out of it"},
+    projH:"Selected projects", projP:"",
+    moreH:"I also built", buildH:"How I build", buildP:"",
+    beyondH:"Beyond the screen", contactH:"Shall we build something?", foot:"Made with HTML, CSS and a bit of AI."}
+};
+
+const ABOUT = {
+  pt:{h:"De Pereiro ao Inteli",
+    p:["Eu cresci em Pereiro, no interior do Ceará, uma cidade que mudou de cara quando uma empresa de internet, a Brisanet, cresceu ali. Foi a primeira vez que eu vi tecnologia mudar a economia de um lugar inteiro.",
+       "Saí de casa aos 15 e, alguns anos depois, vim sozinha para São Paulo. Entrei no Inteli em Administração e migrei para Sistemas de Informação, porque queria ficar no meio do caminho entre o negócio e a tecnologia.",
+       "É ali que eu gosto de trabalhar. Entender o problema, achar a oportunidade e construir algo que funcione, cada vez mais com IA do lado e com criticidade sobre o que ela entrega."],
+    note:"o meio do caminho é onde eu gosto de ficar",
+    meH:"Fora da tela",
+    me:["Amo empreendedorismo, e é uma das coisas que mais me puxam para o iFood.","Passo o dia inteiro ouvindo música, e a IA do Spotify é uma das minhas favoritas.","Gosto de ler, de cinema e de arte. Meu filme favorito da vida é Charada, com a Audrey Hepburn.","Mentoro jovens que querem entrar na faculdade, porque alguém fez isso por mim."],
+    fun:"curiosidade, uma IA interna do iFood tem o meu nome",
+    chips:["IA","Produto","Marketing","Dados e decisão","Operações","Empreendedorismo"]},
+  en:{h:"From Pereiro to Inteli",
+    p:["I grew up in Pereiro, a small town in the countryside of Ceará that changed when an internet company, Brisanet, grew there. It was the first time I saw technology reshape the economy of an entire place.",
+       "I left home at 15 and, a few years later, moved to São Paulo on my own. I started at Inteli in Business Administration and switched to Information Systems, because I wanted to stand right between business and technology.",
+       "That is where I like to work. Understanding the problem, finding the opportunity and building something that works, more and more with AI by my side and a critical eye on what it delivers."],
+    note:"the middle is where I like to be",
+    meH:"Off screen",
+    me:["I love entrepreneurship, and it is one of the things that pulls me most toward iFood.","I listen to music all day long, and Spotify's AI is one of my favorites.","I like reading, cinema and art. My all-time favorite film is Charade, with Audrey Hepburn.","I mentor young people trying to get into college, because someone once did that for me."],
+    fun:"fun fact, one of iFood's internal AIs has my name",
+    chips:["AI","Product","Marketing","Data and decisions","Operations","Entrepreneurship"]}
+};
+
+/* Cada projeto: história curta, minha parte, onde entra a IA, o que ficou. */
+const FEATURED = [
+ {c:"#ff5a6e", who:"Zamp, maio a junho de 2026", name:{pt:"NLP",en:"NLP"},
+  kind:{pt:"Experimentos com modelos e LLMs",en:"Model and LLM experiments"},
+  tools:"Python, Machine Learning, redes neurais, NLP, LLMs, OpenRouter, Flask, React",
+  pt:{story:"A Zamp opera Burger King, Subway, Popeyes e Starbucks no Brasil, e acompanhava as menções dessas marcas nas redes com um modelo fraco e muita revisão manual. Construí uma plataforma de processamento de linguagem natural que classifica o sentimento dessas menções sozinha.",
+      mine:"Estive muito no processo criativo, pensando o que a plataforma deveria fazer pela operação. Também trabalhei no pipeline de experimentos, no desbalanceamento de classes e na avaliação com matriz de confusão.",
+      ai:"Redes neurais (BiLSTM, TextCNN e MLP), comparadas com Naive Bayes, classificam o sentimento. Com LLMs via OpenRouter, a plataforma responde os comentários positivos no tom de cada marca e encaminha os negativos para o SAC.",
+      res:"Saímos de 70% de acurácia com revisão manual para 81% automatizado, projetando uma redução de 89,7% na equipe terceirizada de monitoramento."},
+  en:{story:"Zamp runs Burger King, Subway, Popeyes and Starbucks in Brazil and tracked brand mentions on social media with a weak model and lots of manual review. I built a natural language processing platform that classifies the sentiment of those mentions on its own.",
+      mine:"I was deep in the creative process, shaping what the platform should do for the operation. I also worked on the experiment pipeline, class imbalance and confusion matrix evaluation.",
+      ai:"Neural networks (BiLSTM, TextCNN and MLP), compared with Naive Bayes, classify sentiment. With LLMs through OpenRouter, the platform replies to positive comments in each brand's voice and routes negative ones to customer service.",
+      res:"From 70% accuracy with manual review to 81% fully automated, projecting an 89.7% reduction in the outsourced monitoring team."}},
+ {c:"#3f86e0", who:{pt:"Inteli, Marketing de Eventos, desde abril de 2026",en:"Inteli, Events Marketing, since April 2026"}, name:{pt:"Automação de eventos",en:"Events automation"},
+  kind:{pt:"Ferramentas internas em uso",en:"Internal tools in use"},
+  tools:"Google Apps Script, JavaScript, Python, Google Sheets, HubSpot",
+  pt:{story:"No meu student job, acompanho as áreas e mapeio o que ainda é feito na mão para transformar em automação. Começou com uma planilha de pedidos de brindes que ninguém entendia, que virou plataforma, e depois veio o calendário.",
+      mine:"Conduzo cada solução do levantamento com a equipe até a entrega. A loja de brindes com estoque e relatórios automáticos, dashboards de calendário e o enriquecimento do CRM de estudantes no HubSpot.",
+      ai:"Uso IA para escrever os scripts e para tirar insights dos dados das áreas que eu acompanho.",
+      res:"O relatório de brindes, que alguém contava à mão, hoje sai sozinho."},
+  en:{story:"In my student job, I follow the teams and map what is still done by hand to turn it into automation. It started with a swag order spreadsheet nobody could read, which became a platform, and then came the calendar.",
+      mine:"I lead each solution from discovery with the team to delivery. The swag store with automatic stock and reports, calendar dashboards and student CRM enrichment in HubSpot.",
+      ai:"I use AI to write the scripts and to pull insights from the data of the teams I support.",
+      res:"The swag report someone used to count by hand now runs on its own."}},
+ {c:"#d4161c", who:{pt:"Projeto individual",en:"Solo project"}, name:{pt:"Vibra",en:"Vibra"},
+  kind:{pt:"Produto do zero, sozinha",en:"A product from scratch, solo"},
+  tools:"Figma, Node.js, Express, PostgreSQL, EJS, JWT", link:"https://github.com/AiraaMel/projeto_individual/blob/main/documentos/wad.md",
+  pt:{story:"Quem viaja atrás de cultura tem dificuldade de achar o que está acontecendo de verdade na cidade e de se inscrever. O Vibra é uma plataforma para descobrir eventos locais e garantir a vaga pelo celular.",
+      mine:"Tudo. Olhar o mercado, persona, user stories, protótipo no Figma, banco em PostgreSQL, API em Node com login por JWT e as telas.",
+      ai:"Foi bem no começo, antes do boom. Usei IA para transformar meu wireframe e meu protótipo de alta fidelidade em HTML fiel ao design, coisa que eu não conseguiria sozinha naquela época.",
+      res:"Aplicação funcionando, com busca, inscrição e perfil. Foi o mais perto que eu cheguei de empreender, e recomendação por perfil e um chatbot ficaram como próximos passos."},
+  en:{story:"Culture-minded travelers struggle to find what is really happening in a city and to sign up for it. Vibra is a platform to discover local events and grab a spot from your phone.",
+      mine:"All of it. Market, persona, user stories, Figma prototype, PostgreSQL database, a Node API with JWT login, and the screens.",
+      ai:"This was early, before the boom. I used AI to turn my wireframe and high-fidelity prototype into HTML true to the design, something I could not have done alone back then.",
+      res:"Working app with search, sign-up and profile. The closest I have come to starting a business, with profile-based recommendations and a chatbot as next steps."}},
+ {c:"#ff7a1a", who:{pt:"Exército Brasileiro, Comando Militar do Sudeste",en:"Brazilian Army, Southeast Military Command"}, name:{pt:"Big Data",en:"Big Data"},
+  kind:{pt:"Pipeline de dados, em andamento",en:"Data pipeline, ongoing"},
+  tools:"ETL/ELT, Data Lake, Data Warehouse, modelagem de dados, qualidade e linhagem de dados, estatística descritiva",
+  pt:{story:"O Sistema de Saúde do Exército tem mais de 1 GB de dados públicos financeiros e documentais, de 2014 a 2026. Estamos construindo um pipeline reprodutível e auditável para transformar isso em análise para a gestão.",
+      mine:"Desenvolvo o pipeline e estruturo a camada analítica, com controle de qualidade, linhagem e temporalidade dos dados.",
+      ai:"A IA entra como apoio na construção do pipeline, e eu fico na interseção, revisando com olhar crítico o que ela entrega.",
+      res:"Em andamento, desde outubro de 2026. Análises nos níveis nacional, regional e local para 65 unidades gestoras de 2 Regiões Militares, com lógica parametrizável para as 12."},
+  en:{story:"The Army Health System holds over 1 GB of public financial and document data, from 2014 to 2026. We are building a reproducible, auditable pipeline to turn it into analysis for management.",
+      mine:"I develop the pipeline and structure the analytical layer, with data quality, lineage and time control.",
+      ai:"AI supports building the pipeline, and I stay at the intersection, critically reviewing what it delivers.",
+      res:"Ongoing. National, regional and local analyses for 65 management units in 2 Military Regions, built to expand to all 12."}}
+];
+
+const MORE = [
+ {n:"Voltchain", t:"#ff7a1a", k:{pt:"Hackathon Solana",en:"Solana hackathon"},
+  pt:"Em dupla, contra times de umas quatro pessoas, construímos um protótipo para as pessoas venderem energia solar entre si, sem intermediário. Fiz contratos inteligentes, simulação de IoT da geração, front end e o pitch.",
+  en:"Two of us, against teams of about four, built a prototype for people to sell solar energy to each other, no middleman. I did smart contracts, IoT generation simulation, front end and the pitch."},
+ {n:"Fadel", t:"#ff5a6e", k:{pt:"ML preditivo",en:"Predictive ML"},
+  pt:"Modelo de machine learning para apoiar decisões logísticas da transportadora, do tratamento dos dados à avaliação. Cerca de 72% de acurácia nos testes.",
+  en:"Machine learning model to support the carrier's logistics decisions, from data cleaning to evaluation. About 72% test accuracy."},
+ {n:"Lost Breakeven", t:"#3f86e0", k:{pt:"BTG Pactual",en:"BTG Pactual"},
+  pt:"Um jogo de onboarding em Phaser. O primeiro código que eu escrevi na vida.",
+  en:"An onboarding game in Phaser. The first code I ever wrote."},
+ {n:"SAP Cloud ERP", t:"#14204a", k:{pt:"Exed Academy",en:"Exed Academy"},
+  pt:"Configurei o Order to Cash de ponta a ponta, do cadastro de clientes até a nota fiscal, e validei com uma simulação de mais de 10.000 itens.",
+  en:"Configured Order to Cash end to end, from customer setup to the electronic invoice, validated with a simulation of over 10,000 items."},
+ {n:"Volkswagen", t:"#d4161c", k:{pt:"Arquitetura IoT",en:"IoT architecture"},
+  pt:"Redesenho da arquitetura IoT de uma linha de montagem, para monitorar em tempo real e rastrear componentes. Sensores Keyence, SICK e Atlas Copco, MQTT e OPC, e um consumidor RabbitMQ em Python gravando no PostgreSQL. Visitei a fábrica e vi a linha de perto.",
+  en:"Redesign of the IoT architecture of an assembly line, for real-time monitoring and component traceability. Keyence, SICK and Atlas Copco sensors, MQTT and OPC, and a Python RabbitMQ consumer writing to PostgreSQL. I visited the factory and saw the line up close."},
+ {n:"IPT 360", t:"#3f86e0", k:{pt:"IPT, primeiro ano",en:"IPT, first year"},
+  pt:"Aplicação web para padronizar o registro de vistorias de edificações do laboratório LTDC do IPT. Feita em grupo, com Node.js, PostgreSQL e arquitetura MVC.",
+  en:"Web app to standardize building inspection records for IPT's LTDC lab. Built as a team with Node.js, PostgreSQL and MVC architecture."}
+];
+
+const STEPS = {
+ pt:[["Problema antes da ferramenta","Me pediram uma planilha melhor. Fui entender a dor antes e entreguei uma plataforma.","ex. a loja de brindes"],
+     ["Entender quem usa","Antes de abrir o código, eu desenho a pessoa e o que ela precisa.","ex. a persona do Vibra"],
+     ["Explorar com IA","Testo o que modelos e LLMs conseguem fazer antes de escolher o caminho.","ex. comparar modelos na Zamp"],
+     ["Prototipar rápido","Prefiro uma versão que roda a um plano perfeito.","ex. o hackathon em dupla"],
+     ["Testar e melhorar","Olho onde o resultado erra e ajusto até mexer no número.","ex. de 70% para 81%"]],
+ en:[["Problem before tool","I was asked for a better spreadsheet. I understood the pain first and delivered a platform.","e.g. the swag store"],
+     ["Know who uses it","Before opening the code, I sketch the person and what they need.","e.g. Vibra's persona"],
+     ["Explore with AI","I test what models and LLMs can do before choosing a path.","e.g. comparing models at Zamp"],
+     ["Prototype fast","I prefer a version that runs over a perfect plan.","e.g. the two-person hackathon"],
+     ["Test and improve","I look at where the output fails and adjust until the number moves.","e.g. from 70% to 81%"]]
+};
+const STEP_ASIDE = {pt:"No dia a dia, uso Claude e Claude Code para programar, depurar e organizar ideias.",en:"Day to day, I use Claude and Claude Code to code, debug and organize ideas."};
+
+const LIGA = {
+ pt:{h:"Liga de IA", sub:"Inteli, desde abril de 2025",
+     p:["Estudo aplicações práticas de IA com outros alunos e represento a liga em workshops e eventos.","Na liga usei pandas, numpy e NotebookLM para analisar dados de evasão.","Fiz competições de Kaggle. Numa delas, do primeiro ano do Inteli, construí um Random Forest para prever quais startups teriam sucesso a partir do histórico de captação, com cerca de 79% de acurácia na validação cruzada."],
+     link:"https://github.com/AiraaMel/Kaggle/blob/main/RFsubmission.ipynb",
+     note:"onde eu aprendo IA com outras pessoas"},
+ en:{h:"AI League", sub:"Inteli, since April 2025",
+     p:["I study practical AI applications with other students and represent the league at workshops and events.","In the league I used pandas, numpy and NotebookLM to analyze dropout data.","I took part in Kaggle competitions. In one, from Inteli's first year, I built a Random Forest to predict which startups would succeed from their funding history, with about 79% cross-validated accuracy."],
+     link:"https://github.com/AiraaMel/Kaggle/blob/main/RFsubmission.ipynb",
+     note:"where I learn AI with other people"}
+};
+
+const BEYOND = {
+ pt:[["Diretora de Diversidade","Grêmio Estudantil, de fevereiro de 2025 a abril de 2026. Organizei ações como Páscoa, Festa Junina e Wellness Day"],["Representante de turma","A ponte entre alunos, Inteli e coordenação"],["Eventos do Inteli","Parte da equipe do onboarding de cerca de 200 alunos e do tour para umas 40 pessoas de escolas"],["Instituto Semear e Stone","Programa Potencializa"],["General Business Program, BTC","Negociação, finanças, valuation e modelagem de negócios"],["Comunidade Wave","Mentora de vestibulandos. Dois mentorados, um aprovado"]],
+ en:[["Diversity Director","Student Union, February 2025 to April 2026. Organized events like Easter, Festa Junina and Wellness Day"],["Class representative","The bridge between students, Inteli and faculty"],["Inteli events","On the team for the onboarding of about 200 students and a campus tour for about 40 school visitors"],["Instituto Semear and Stone","Potencializa program"],["General Business Program, BTC","Negotiation, finance, valuation and business modeling"],["Comunidade Wave","College admissions mentor. Two mentees, one admitted"]]
+};
+
+/* ============ RENDER ============ */
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const fx = s => esc(s).replace(/\[\[(.+?)\]\]/g,'<mark class="todo">$1</mark>');
+const $ = id => document.getElementById(id);
+let lang = "pt", clean = !DRAFT;
+try{ const s = localStorage.getItem("aira-lang"); if(s==="en"||s==="pt") lang = s; }catch(e){}
+
+/* São Paulo skyline, generated */
+(function(){
+  const sp = $("sp"); let seed = 7, out = "";
+  const rnd = () => (seed = seed*16807 % 2147483647) / 2147483647;
+  let x = 0;
+  while(x < 200){
+    const w = 16 + rnd()*18, h = 40 + rnd()*70, y = 140 - h;
+    out += `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${w.toFixed(1)}" height="${h.toFixed(1)}" fill="${rnd()>.5?'#22346e':'#1b2a5c'}"/>`;
+    for(let wy = y+6; wy < 134; wy += 9) for(let wx = x+4; wx < x+w-4; wx += 7)
+      if(rnd() > .55) out += `<rect x="${wx.toFixed(1)}" y="${wy.toFixed(1)}" width="3" height="4" fill="#ffcf6b"/>`;
+    x += w + 2;
+  }
+  sp.insertAdjacentHTML("beforeend", out);
+})();
+
+function render(){
+  const u = UI[lang], a = ABOUT[lang];
+  document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+  $("b-pt").setAttribute("aria-pressed", lang==="pt"); $("b-en").setAttribute("aria-pressed", lang==="en");
+  document.body.classList.toggle("clean", clean);
+  $("draft").hidden = !DRAFT;
+  $("draftTxt").textContent = u.draft; $("cleanBtn").textContent = clean ? u.marks : u.clean;
+  $("links").innerHTML = u.nav.map(([h,t]) => `<a href="#${h}">${t}</a>`).join("");
+  $("quote").innerHTML = u.quote; $("sub").textContent = u.sub;
+  $("cta1").textContent = u.cta1; $("cta2").textContent = u.cta2;
+
+  $("about").innerHTML = `<div><h2>${a.h}</h2><div style="margin-top:28px">${a.p.map(p=>`<p>${fx(p)}</p>`).join("")}</div><span class="note">${a.note}</span></div>
+    <div><div class="me"><h3>${a.meH}</h3>${a.me.map(p=>`<p>${p}</p>`).join("")}</div><span class="note" style="display:block;margin-top:18px;transform:rotate(-1.5deg)">${a.fun}</span>
+    <div class="chips">${a.chips.map(c=>`<span class="chip">${c}</span>`).join("")}</div></div>`;
+  const L = u.labels, T = x => typeof x === "string" ? x : x[lang];
+  $("proj").innerHTML = `<div class="head"><h2>${u.projH}</h2></div>` +
+    FEATURED.map(p => { const d = p[lang];
+      return `<article class="proj" style="--c:${p.c}">
+        <div class="cover"><span class="sprock" aria-hidden="true"></span><span class="who">${T(p.who)}</span>
+        <h3>${T(p.name)}</h3><span class="kind">${T(p.kind)}</span></div>
+        <div class="body"><p class="story">${fx(d.story)}</p>
+        <dl class="trio"><div class="mine"><dt>${L.mine}</dt><dd>${fx(d.mine)}</dd></div>
+        <div><dt>${L.ai}</dt><dd>${fx(d.ai)}</dd></div><div><dt>${L.res}</dt><dd>${fx(d.res)}</dd></div></dl>
+        <p class="toolsl">${fx(p.tools)}${p.link?` &nbsp;<a href="${p.link}" target="_blank" rel="noopener">${lang==="pt"?"Ver no GitHub":"See on GitHub"} →</a>`:""}</p></div></article>`; }).join("") +
+    `<div class="more"><h3>${u.moreH}</h3><div class="thumbs">${MORE.map(m=>`<div class="thumb" style="--t:${m.t}"><small>${m.k[lang]}</small><b>${m.n}</b><p>${fx(m[lang])}</p></div>`).join("")}</div></div>`;
+
+  $("build").innerHTML = `<div class="head"><h2>${u.buildH}</h2></div>
+    <div class="film">${STEPS[lang].map(([h,p,n])=>`<div class="shot"><h3>${h}</h3><p>${p}</p><span class="note">${n}</span></div>`).join("")}</div>`;
+
+  const g = LIGA[lang];
+  $("beyond").innerHTML = `<div class="head"><h2>${u.beyondH}</h2></div>
+    <div class="liga"><div class="lc"><div><h3>${g.h}</h3><span>${g.sub}</span></div><span class="note" style="color:#fff">${g.note}</span></div>
+    <div class="lb">${g.p.map(p=>`<p>${fx(p)}</p>`).join("")}<a class="glink" href="${g.link}" target="_blank" rel="noopener">${lang==="pt"?"Ver o notebook no GitHub":"See the notebook on GitHub"} →</a></div></div>
+    <div class="beyond">${BEYOND[lang].map(([b,s])=>`<div><b>${b}</b><span>${fx(s)}</span></div>`).join("")}</div>`;
+
+  $("contact").innerHTML = `<h2>${u.contactH}</h2><div class="clinks">${CONTACT.map(c=>`<a href="${esc(c.href)}" target="_blank" rel="noopener"><span>${c.label}</span><small>${fx(c.show)}</small></a>`).join("")}</div>`;
+  $("foot").textContent = u.foot;
+}
+
+$("b-pt").addEventListener("click", () => { lang = "pt"; try{localStorage.setItem("aira-lang","pt")}catch(e){} render(); });
+$("b-en").addEventListener("click", () => { lang = "en"; try{localStorage.setItem("aira-lang","en")}catch(e){} render(); });
+$("cleanBtn").addEventListener("click", () => { clean = !clean; render(); });
+render();
+}
+</script>
+</body>
+</html>
